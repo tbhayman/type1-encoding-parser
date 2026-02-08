@@ -166,7 +166,7 @@ pub fn parse(input: &[u8]) -> Result<Vec<Value>, pom::Error> {
 
 
 pub fn get_encoding_map(input: &[u8]) -> Result<HashMap<u32, Vec<u8>>, &'static str> {
-    let lexed = parse(&input).expect("failed to parse");
+    let lexed = parse(&input).map_err(|_| "failed to parse")?;
 
     let mut i = 0;
     let mut map = HashMap::new();
