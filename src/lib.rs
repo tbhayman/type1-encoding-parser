@@ -175,7 +175,7 @@ pub fn get_encoding_map(input: &[u8]) -> Result<HashMap<u32, Vec<u8>>, &'static 
             Value::Operator(ref o) => {
                 match o.as_ref() {
                     "array" => {
-                        let count = if let &Value::Integer(ref c) = &lexed[i-1] { Ok(*c) } else { Err("array expected int") }?;
+                        let _count = if let &Value::Integer(ref c) = &lexed[i-1] { Ok(*c) } else { Err("array expected int") }?;
                         let name = if let &Value::Name(ref n) = &lexed[i-2] { Ok(n) } else { Err("expected name") }?;
                         i += 1;
                         if name == b"Encoding" {
